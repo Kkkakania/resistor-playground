@@ -18,14 +18,14 @@
     color:var(--text); min-height:100vh; line-height:1.5;
   }
   .wrap{max-width:880px;margin:0 auto;padding:28px 18px 64px}
-  header{text-align:center;margin-bottom:22px}
+  header{text-align:center;margin-bottom:18px}
   h1{font-size:1.9rem;margin:0 0 6px;letter-spacing:.5px}
   h1 .zh{color:var(--muted);font-weight:500;font-size:1.1rem}
   .sub{color:var(--muted);font-size:.92rem}
   .tabs{display:flex;gap:8px;justify-content:center;margin:22px 0;flex-wrap:wrap}
   .tab{
     background:var(--panel);border:1px solid var(--line);color:var(--muted);
-    padding:9px 20px;border-radius:999px;cursor:pointer;font-size:.95rem;
+    padding:9px 18px;border-radius:999px;cursor:pointer;font-size:.95rem;
     transition:.15s;user-select:none;
   }
   .tab:hover{color:var(--text);border-color:var(--accent2)}
@@ -35,10 +35,9 @@
     padding:24px;box-shadow:var(--shadow);
   }
   .hidden{display:none}
-  /* resistor */
   .stage{display:flex;justify-content:center;padding:18px 0 6px}
   svg{max-width:100%;height:auto}
-  .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:18px}
+  .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin-top:18px}
   .ctl label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
   select,input{
     width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--text);
@@ -47,12 +46,18 @@
   select:focus,input:focus{border-color:var(--accent2)}
   .result{
     margin-top:22px;text-align:center;background:var(--panel2);
-    border:1px solid var(--line);border-radius:14px;padding:20px;
+    border:1px solid var(--line);border-radius:14px;padding:20px;position:relative;
   }
   .result .big{font-size:2.4rem;font-weight:700;color:var(--accent);letter-spacing:1px}
   .result .tol{font-size:1.05rem;color:var(--text);margin-top:4px}
-  .result .range{font-size:.9rem;color:var(--muted);margin-top:6px}
-  .seg{display:flex;gap:8px;justify-content:center;margin:6px 0 16px}
+  .result .range,.result .extra{font-size:.9rem;color:var(--muted);margin-top:6px}
+  .result .eseries{font-size:.86rem;margin-top:8px;color:var(--accent2)}
+  .copybtn{
+    position:absolute;top:12px;right:12px;background:var(--panel);border:1px solid var(--line);
+    color:var(--muted);border-radius:8px;padding:5px 10px;font-size:.78rem;cursor:pointer;transition:.15s
+  }
+  .copybtn:hover{color:var(--accent);border-color:var(--accent)}
+  .seg{display:flex;gap:8px;justify-content:center;margin:6px 0 16px;flex-wrap:wrap}
   .seg button{
     background:var(--panel2);border:1px solid var(--line);color:var(--muted);
     padding:7px 16px;border-radius:9px;cursor:pointer;font-size:.9rem;transition:.15s
@@ -66,41 +71,48 @@
   }
   .btn:hover{filter:brightness(1.08)}
   .btn.ghost{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
-  /* quiz */
   .quizbar{display:flex;justify-content:space-around;gap:10px;margin-bottom:8px;flex-wrap:wrap}
-  .stat{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 18px;text-align:center;min-width:90px}
+  .stat{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 18px;text-align:center;min-width:84px}
   .stat .n{font-size:1.5rem;font-weight:700}
   .stat .l{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
   .opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
   .opt{
     background:var(--panel2);border:1px solid var(--line);color:var(--text);
-    padding:15px;border-radius:12px;cursor:pointer;font-size:1.15rem;font-weight:600;transition:.15s;text-align:center
+    padding:15px;border-radius:12px;cursor:pointer;font-size:1.12rem;font-weight:600;transition:.15s;text-align:center;position:relative
   }
   .opt:hover{border-color:var(--accent2)}
+  .opt .kbd{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   .opt.correct{background:rgba(52,211,153,.18);border-color:var(--accent);color:var(--accent)}
   .opt.wrong{background:rgba(248,113,113,.16);border-color:var(--danger);color:var(--danger)}
   .opt:disabled{cursor:default}
   .timerbar{height:7px;background:var(--panel2);border-radius:999px;overflow:hidden;margin-top:16px}
   .timerbar > div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:100%;transition:width .1s linear}
   .feedback{text-align:center;margin-top:14px;font-weight:600;min-height:24px}
-  .legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px;margin-top:20px;font-size:.82rem}
+  .legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px;margin-top:20px;font-size:.82rem}
   .legend .li{display:flex;align-items:center;gap:8px;color:var(--muted)}
   .legend .sw{width:16px;height:16px;border-radius:4px;border:1px solid rgba(255,255,255,.15);flex:none}
+  .hint{font-size:.84rem;color:var(--muted);text-align:center;margin-top:14px;line-height:1.7}
+  .hint code{background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--accent2)}
   footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:26px}
   footer a{color:var(--accent2);text-decoration:none}
-  .note{font-size:.82rem;color:var(--muted);text-align:center;margin-top:10px}
+  @media(max-width:520px){
+    .opts{grid-template-columns:1fr}
+    h1{font-size:1.5rem}
+    .result .big{font-size:1.9rem}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>⚡ Resistor Playground <span class="zh">电阻色环游乐场</span></h1>
-    <div class="sub">读色环 · 反查色环 · 限时闯关 — 一个给电类同学的小工具</div>
+    <div class="sub">色环解码 · 反查 · SMD 贴片 · 限时闯关 — 写给电类同学的小工具</div>
   </header>
 
   <div class="tabs">
     <div class="tab active" data-tab="decode">🎨 解码 Decode</div>
     <div class="tab" data-tab="encode">🔢 反查 Encode</div>
+    <div class="tab" data-tab="smd">🔲 SMD 贴片</div>
     <div class="tab" data-tab="quiz">🎮 闯关 Quiz</div>
   </div>
 
@@ -109,13 +121,16 @@
     <div class="seg" id="decBands">
       <button data-n="4" class="active">4 环</button>
       <button data-n="5">5 环</button>
+      <button data-n="6">6 环</button>
     </div>
     <div class="stage"><div id="decSvg"></div></div>
     <div class="controls" id="decControls"></div>
     <div class="result">
+      <button class="copybtn" id="decCopy">复制</button>
       <div class="big" id="decValue">—</div>
       <div class="tol" id="decTol"></div>
       <div class="range" id="decRange"></div>
+      <div class="extra" id="decTemp"></div>
     </div>
     <div class="legend" id="legend"></div>
   </section>
@@ -153,6 +168,38 @@
     <div class="result">
       <div class="big" id="encDesc">—</div>
       <div class="range" id="encNote"></div>
+      <div class="eseries" id="encE"></div>
+    </div>
+  </section>
+
+  <!-- SMD -->
+  <section id="smd" class="panel hidden">
+    <div class="row">
+      <div class="ctl">
+        <label>贴片代码 SMD Code</label>
+        <input id="smdInput" type="text" value="473" placeholder="如 473 / 4R7 / 1002 / 01C" autocomplete="off" />
+      </div>
+    </div>
+    <div class="seg" style="margin-top:14px">
+      <button type="button" class="smd-ex" data-c="473">473</button>
+      <button type="button" class="smd-ex" data-c="4R7">4R7</button>
+      <button type="button" class="smd-ex" data-c="1002">1002</button>
+      <button type="button" class="smd-ex" data-c="49R9">49R9</button>
+      <button type="button" class="smd-ex" data-c="01C">01C</button>
+      <button type="button" class="smd-ex" data-c="68X">68X</button>
+    </div>
+    <div class="stage"><div id="smdSvg"></div></div>
+    <div class="result">
+      <button class="copybtn" id="smdCopy">复制</button>
+      <div class="big" id="smdValue">—</div>
+      <div class="range" id="smdSystem"></div>
+      <div class="extra" id="smdDetail"></div>
+    </div>
+    <div class="hint">
+      <b>3 位</b>：前两位有效数字 + 第三位补零，<code>473 = 47×10³ = 47kΩ</code><br>
+      <b>4 位 (1%)</b>：前三位有效 + 末位补零，<code>1002 = 100×10² = 10kΩ</code><br>
+      <b>含 R</b>：R 代表小数点，<code>4R7 = 4.7Ω</code>，<code>R47 = 0.47Ω</code><br>
+      <b>EIA-96 (1%)</b>：两位代码查表 + 字母乘数，<code>01C = 100×100 = 10kΩ</code>
     </div>
   </section>
 
@@ -174,300 +221,325 @@
     <div class="feedback" id="qFeedback"></div>
     <div style="text-align:center;margin-top:14px">
       <button class="btn ghost" id="qReset">重新开始 Reset</button>
+      <div class="hint" style="margin-top:10px">提示：可直接按键盘 <code>1</code> <code>2</code> <code>3</code> <code>4</code> 作答</div>
     </div>
   </section>
 
   <footer>
-    用 ⚡ 与 ❤️ 制作 · 数据基于 IEC 60062 电阻色环标准 ·
-    <a href="https://github.com" target="_blank" rel="noopener">源码 on GitHub</a>
+    用 ⚡ 与 ❤️ 制作 · 数据基于 IEC 60062 / EIA 标准 ·
+    <a href="https://github.com/Kkkakania/resistor-playground" target="_blank" rel="noopener">源码 on GitHub</a>
+    · v2
   </footer>
 </div>
 
 <script>
-/* ---------- color code data (IEC 60062) ---------- */
+/* ===================== color code data (IEC 60062) ===================== */
 const COLORS = {
-  black:  {digit:0, mult:1,         tol:null, hex:"#161616", text:"#e8eef7", zh:"黑"},
-  brown:  {digit:1, mult:10,        tol:1,    hex:"#7c4a22", text:"#fff",     zh:"棕"},
-  red:    {digit:2, mult:100,       tol:2,    hex:"#d8392f", text:"#fff",     zh:"红"},
-  orange: {digit:3, mult:1000,      tol:null, hex:"#e8851b", text:"#161616",  zh:"橙"},
-  yellow: {digit:4, mult:10000,     tol:null, hex:"#f4d03f", text:"#161616", zh:"黄"},
-  green:  {digit:5, mult:100000,    tol:0.5,  hex:"#3ea34b", text:"#fff",     zh:"绿"},
-  blue:   {digit:6, mult:1000000,   tol:0.25, hex:"#2b7fd4", text:"#fff",     zh:"蓝"},
-  violet: {digit:7, mult:10000000,  tol:0.1,  hex:"#8b46c4", text:"#fff",     zh:"紫"},
-  grey:   {digit:8, mult:100000000, tol:0.05, hex:"#9aa0a6", text:"#161616",  zh:"灰"},
-  white:  {digit:9, mult:1000000000,tol:null, hex:"#f3f3f3", text:"#161616",  zh:"白"},
-  gold:   {digit:null, mult:0.1,    tol:5,    hex:"#c9a227", text:"#161616",  zh:"金"},
-  silver: {digit:null, mult:0.01,   tol:10,   hex:"#c5c8cc", text:"#161616",  zh:"银"},
+  black:  {digit:0, mult:1,         tol:null, temp:null, hex:"#161616", zh:"黑"},
+  brown:  {digit:1, mult:10,        tol:1,    temp:100,  hex:"#7c4a22", zh:"棕"},
+  red:    {digit:2, mult:100,       tol:2,    temp:50,   hex:"#d8392f", zh:"红"},
+  orange: {digit:3, mult:1000,      tol:null, temp:15,   hex:"#e8851b", zh:"橙"},
+  yellow: {digit:4, mult:10000,     tol:null, temp:25,   hex:"#f4d03f", zh:"黄"},
+  green:  {digit:5, mult:100000,    tol:0.5,  temp:null, hex:"#3ea34b", zh:"绿"},
+  blue:   {digit:6, mult:1000000,   tol:0.25, temp:10,   hex:"#2b7fd4", zh:"蓝"},
+  violet: {digit:7, mult:10000000,  tol:0.1,  temp:5,    hex:"#8b46c4", zh:"紫"},
+  grey:   {digit:8, mult:100000000, tol:0.05, temp:null, hex:"#9aa0a6", zh:"灰"},
+  white:  {digit:9, mult:1000000000,tol:null, temp:null, hex:"#f3f3f3", zh:"白"},
+  gold:   {digit:null, mult:0.1,    tol:5,    temp:null, hex:"#c9a227", zh:"金"},
+  silver: {digit:null, mult:0.01,   tol:10,   temp:null, hex:"#c5c8cc", zh:"银"},
 };
-
 const DIGIT_COLORS = ["black","brown","red","orange","yellow","green","blue","violet","grey","white"];
 const MULT_COLORS  = ["black","brown","red","orange","yellow","green","blue","violet","grey","white","gold","silver"];
 const TOL_COLORS   = ["brown","red","green","blue","violet","grey","gold","silver"];
+const TEMP_COLORS  = ["brown","red","orange","yellow","blue","violet"];
+const E24 = [10,11,12,13,15,16,18,20,22,24,27,30,33,36,39,43,47,51,56,62,68,75,82,91];
 
-/* ---------- formatting ---------- */
+/* EIA-96 (1% SMD) lookup, index 1..96 */
+const EIA96=[null,100,102,105,107,110,113,115,118,121,124,127,130,133,137,140,143,147,150,154,158,
+162,165,169,174,178,182,187,191,196,200,205,210,215,221,226,232,237,243,249,255,261,267,274,280,287,294,
+301,309,316,324,332,340,348,357,365,374,383,392,402,412,422,432,442,453,464,475,487,499,511,523,536,549,
+562,576,590,604,619,634,649,665,681,698,715,732,750,768,787,806,825,845,866,887,909,931,953,976];
+const EIA96_MULT={Z:0.001,Y:0.01,X:0.1,A:1,B:10,H:10,C:100,D:1000,E:10000,F:100000};
+
+/* ===================== helpers ===================== */
 function fmtOhms(v){
-  if(v === 0) return "0 Ω";
-  const units = [[1e9,"GΩ"],[1e6,"MΩ"],[1e3,"kΩ"],[1,"Ω"],[1e-3,"mΩ"]];
+  if(v===0) return "0 Ω";
+  const units=[[1e9,"GΩ"],[1e6,"MΩ"],[1e3,"kΩ"],[1,"Ω"],[1e-3,"mΩ"]];
   for(const [f,u] of units){
-    if(v >= f){
-      let n = v / f;
-      let s = n.toFixed(3).replace(/\.?0+$/,"");
-      return s + " " + u;
+    if(v>=f){ let s=(v/f).toFixed(3).replace(/\.?0+$/,""); return s+" "+u; }
+  }
+  return (+v.toFixed(3))+" Ω";
+}
+function nearestE24(ohms){
+  if(ohms<=0) return null;
+  const exp=Math.floor(Math.log10(ohms));
+  let best=null,bestErr=Infinity;
+  for(let e=exp-1;e<=exp+1;e++){
+    for(const b of E24){
+      const v=b*Math.pow(10,e-1);
+      const err=Math.abs(v-ohms)/ohms;
+      if(err<bestErr){bestErr=err;best=v;}
     }
   }
-  return v + " Ω";
+  return {value:best, errPct:bestErr*100};
+}
+function copyText(t,btn){
+  const done=()=>{const o=btn.textContent;btn.textContent="已复制 ✓";setTimeout(()=>btn.textContent=o,1200);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(done);}
+  else{done();}
 }
 
-/* ---------- resistor SVG ---------- */
+/* ===================== resistor SVG ===================== */
 function resistorSVG(bandColors){
-  // bandColors: array of color-name strings (in order, left->right)
   const W=420,H=170,bodyX=120,bodyW=180,bodyY=52,bodyH=66,cy=H/2;
   let bands="";
-  const n=bandColors.length;
-  // tolerance band sits further right (gap); others evenly spaced on left part
-  const leftCount = n-1;
-  const startX=bodyX+22, leftSpan=92;
+  const n=bandColors.length, leftCount=n-1, startX=bodyX+22, leftSpan=92;
   for(let i=0;i<n;i++){
     let x;
-    if(i < leftCount){
-      x = startX + (leftCount>1 ? i*(leftSpan/(leftCount-1)) : 0);
-    } else {
-      x = bodyX+bodyW-26; // tolerance band near right end
-    }
+    if(i<leftCount){ x=startX+(leftCount>1 ? i*(leftSpan/(leftCount-1)) : 0); }
+    else { x=bodyX+bodyW-26; }
     const c=COLORS[bandColors[i]];
-    bands += `<rect x="${x-7}" y="${bodyY-4}" width="14" height="${bodyH+8}" rx="3" fill="${c?c.hex:'#555'}" stroke="rgba(0,0,0,.35)" stroke-width="1"/>`;
+    bands+=`<rect x="${x-7}" y="${bodyY-4}" width="14" height="${bodyH+8}" rx="3" fill="${c?c.hex:'#555'}" stroke="rgba(0,0,0,.35)" stroke-width="1"/>`;
   }
   return `
   <svg viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="resistor">
     <line x1="6" y1="${cy}" x2="${bodyX}" y2="${cy}" stroke="#9aa0a6" stroke-width="5"/>
     <line x1="${bodyX+bodyW}" y1="${cy}" x2="${W-6}" y2="${cy}" stroke="#9aa0a6" stroke-width="5"/>
-    <rect x="${bodyX}" y="${bodyY}" width="${bodyW}" height="${bodyH}" rx="30"
-      fill="#d9c9a3" stroke="#b9a577" stroke-width="2"/>
-    <rect x="${bodyX}" y="${bodyY}" width="${bodyW}" height="${bodyH}" rx="30"
-      fill="url(#sh)"/>
-    <defs>
-      <linearGradient id="sh" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="rgba(255,255,255,.35)"/>
-        <stop offset="0.5" stop-color="rgba(255,255,255,0)"/>
-        <stop offset="1" stop-color="rgba(0,0,0,.18)"/>
-      </linearGradient>
-    </defs>
+    <rect x="${bodyX}" y="${bodyY}" width="${bodyW}" height="${bodyH}" rx="30" fill="#d9c9a3" stroke="#b9a577" stroke-width="2"/>
+    <rect x="${bodyX}" y="${bodyY}" width="${bodyW}" height="${bodyH}" rx="30" fill="url(#sh)"/>
+    <defs><linearGradient id="sh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(255,255,255,.35)"/>
+      <stop offset="0.5" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,.18)"/>
+    </linearGradient></defs>
     ${bands}
   </svg>`;
 }
+function smdChipSVG(code){
+  const W=300,H=130;
+  return `
+  <svg viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="smd resistor">
+    <rect x="40" y="30" width="220" height="70" rx="6" fill="#1f1f24" stroke="#34d399" stroke-width="2"/>
+    <rect x="40" y="30" width="22" height="70" fill="#c9ccd1"/>
+    <rect x="238" y="30" width="22" height="70" fill="#c9ccd1"/>
+    <text x="150" y="73" text-anchor="middle" font-family="monospace" font-size="34" font-weight="700" fill="#f3f3f3">${code||"&#8212;"}</text>
+  </svg>`;
+}
 
-/* ====================================================== DECODE ====================================================== */
-let decN = 4;
-let decSel = ["brown","black","red","gold"]; // 1k 5%
+/* ===================== DECODE ===================== */
+let decN=4;
+let decSel=["brown","black","red","gold"];
+const DEC_DEFAULTS={4:["brown","black","red","gold"],5:["brown","black","black","brown","brown"],6:["brown","black","black","brown","brown","brown"]};
 
 function buildDecodeControls(){
-  const slots = decN===4
-    ? [["第1环 D1",DIGIT_COLORS,0],["第2环 D2",DIGIT_COLORS,1],["倍率 ×",MULT_COLORS,2],["容差 Tol",TOL_COLORS,3]]
-    : [["第1环 D1",DIGIT_COLORS,0],["第2环 D2",DIGIT_COLORS,1],["第3环 D3",DIGIT_COLORS,2],["倍率 ×",MULT_COLORS,3],["容差 Tol",TOL_COLORS,4]];
+  let slots;
+  if(decN===4) slots=[["第1环 D1",DIGIT_COLORS,0],["第2环 D2",DIGIT_COLORS,1],["倍率 ×",MULT_COLORS,2],["容差 Tol",TOL_COLORS,3]];
+  else if(decN===5) slots=[["第1环 D1",DIGIT_COLORS,0],["第2环 D2",DIGIT_COLORS,1],["第3环 D3",DIGIT_COLORS,2],["倍率 ×",MULT_COLORS,3],["容差 Tol",TOL_COLORS,4]];
+  else slots=[["第1环 D1",DIGIT_COLORS,0],["第2环 D2",DIGIT_COLORS,1],["第3环 D3",DIGIT_COLORS,2],["倍率 ×",MULT_COLORS,3],["容差 Tol",TOL_COLORS,4],["温度系数 TC",TEMP_COLORS,5]];
   const box=document.getElementById("decControls");
   box.innerHTML="";
   slots.forEach(([label,opts,idx])=>{
-    const div=document.createElement("div");
-    div.className="ctl";
+    const div=document.createElement("div"); div.className="ctl";
     const sel=document.createElement("select");
     opts.forEach(c=>{
       const o=document.createElement("option");
-      o.value=c; o.textContent=`${COLORS[c].zh} ${c}`;
+      o.value=c;
+      const meta = idx===slots.length-1 && decN===6 ? ` (${COLORS[c].temp}ppm)` : "";
+      o.textContent=`${COLORS[c].zh} ${c}${meta}`;
       if(decSel[idx]===c)o.selected=true;
       sel.appendChild(o);
     });
     sel.onchange=()=>{decSel[idx]=sel.value;renderDecode();};
-    div.innerHTML=`<label>${label}</label>`;
-    div.appendChild(sel);
-    box.appendChild(div);
+    div.innerHTML=`<label>${label}</label>`; div.appendChild(sel); box.appendChild(div);
   });
 }
-
 function renderDecode(){
-  document.getElementById("decSvg").innerHTML = resistorSVG(decSel);
-  let digits, multColor, tolColor;
+  document.getElementById("decSvg").innerHTML=resistorSVG(decSel);
+  let digits,multColor,tolColor,tempColor=null;
   if(decN===4){ digits=[decSel[0],decSel[1]]; multColor=decSel[2]; tolColor=decSel[3]; }
-  else { digits=[decSel[0],decSel[1],decSel[2]]; multColor=decSel[3]; tolColor=decSel[4]; }
-  let num = parseInt(digits.map(c=>COLORS[c].digit).join(""),10);
-  let value = num * COLORS[multColor].mult;
-  const tol = COLORS[tolColor].tol;
-  document.getElementById("decValue").textContent = fmtOhms(value);
-  document.getElementById("decTol").textContent = tol!=null ? `容差 ±${tol}%` : "（该颜色不用作容差环）";
-  if(tol!=null){
-    const lo=value*(1-tol/100), hi=value*(1+tol/100);
-    document.getElementById("decRange").textContent = `实际范围：${fmtOhms(lo)} ~ ${fmtOhms(hi)}`;
-  } else {
-    document.getElementById("decRange").textContent = "";
-  }
+  else if(decN===5){ digits=[decSel[0],decSel[1],decSel[2]]; multColor=decSel[3]; tolColor=decSel[4]; }
+  else { digits=[decSel[0],decSel[1],decSel[2]]; multColor=decSel[3]; tolColor=decSel[4]; tempColor=decSel[5]; }
+  const num=parseInt(digits.map(c=>COLORS[c].digit).join(""),10);
+  const value=num*COLORS[multColor].mult;
+  const tol=COLORS[tolColor].tol;
+  document.getElementById("decValue").textContent=fmtOhms(value);
+  document.getElementById("decTol").textContent= tol!=null ? `容差 ±${tol}%` : "（该颜色不用作容差环）";
+  document.getElementById("decRange").textContent = tol!=null
+    ? `实际范围：${fmtOhms(value*(1-tol/100))} ~ ${fmtOhms(value*(1+tol/100))}` : "";
+  document.getElementById("decTemp").textContent = tempColor ? `温度系数：${COLORS[tempColor].temp} ppm/°C` : "";
+  document.getElementById("decValue").dataset.copy = fmtOhms(value) + (tol!=null?` ±${tol}%`:"") + (tempColor?` ${COLORS[tempColor].temp}ppm/°C`:"");
 }
 
-/* ====================================================== ENCODE ====================================================== */
+/* ===================== ENCODE ===================== */
 let encN=4;
 function renderEncode(){
-  const raw = parseFloat(document.getElementById("encInput").value)||0;
-  const unit = parseFloat(document.getElementById("encUnit").value);
-  const tolColor = document.getElementById("encTol").value;
-  const ohms = raw*unit;
-  const sig = encN===4?2:3;
-  const descEl=document.getElementById("encDesc");
-  const noteEl=document.getElementById("encNote");
-
-  if(ohms<=0){ descEl.textContent="请输入正的阻值"; noteEl.textContent=""; document.getElementById("encSvg").innerHTML=resistorSVG(encN===4?["black","black","black",tolColor]:["black","black","black","black",tolColor]); return; }
-
-  // express ohms as D * 10^mult with `sig` significant digits
-  let exp = Math.floor(Math.log10(ohms)) - (sig-1);
-  let digitsNum = Math.round(ohms / Math.pow(10,exp));
-  // handle rounding overflow (e.g. 99.6 -> 100)
-  if(digitsNum >= Math.pow(10,sig)){ digitsNum = Math.round(digitsNum/10); exp+=1; }
-  let multPow = exp;
-  // clamp multiplier into available range (-2 .. 9)
-  let note="";
+  const raw=parseFloat(document.getElementById("encInput").value)||0;
+  const unit=parseFloat(document.getElementById("encUnit").value);
+  const tolColor=document.getElementById("encTol").value;
+  const ohms=raw*unit, sig=encN===4?2:3;
+  const descEl=document.getElementById("encDesc"), noteEl=document.getElementById("encNote"), eEl=document.getElementById("encE");
+  if(ohms<=0){
+    descEl.textContent="请输入正的阻值"; noteEl.textContent=""; eEl.textContent="";
+    document.getElementById("encSvg").innerHTML=resistorSVG(encN===4?["black","black","black",tolColor]:["black","black","black","black",tolColor]);
+    return;
+  }
+  let exp=Math.floor(Math.log10(ohms))-(sig-1);
+  let digitsNum=Math.round(ohms/Math.pow(10,exp));
+  if(digitsNum>=Math.pow(10,sig)){ digitsNum=Math.round(digitsNum/10); exp+=1; }
+  let multPow=exp, note="";
   if(multPow<-2||multPow>9){ note="⚠️ 超出标准色环可表示范围，仅作近似展示"; multPow=Math.max(-2,Math.min(9,multPow)); }
-  const digitStr = String(digitsNum).padStart(sig,"0").slice(0,sig);
-  const digitColors = digitStr.split("").map(d=>DIGIT_COLORS[+d]);
-  // find multiplier color
-  const multColor = MULT_COLORS.find(c=>Math.abs(COLORS[c].mult - Math.pow(10,multPow))<1e-9) || "black";
-  const bands=[...digitColors, multColor, tolColor];
-  document.getElementById("encSvg").innerHTML = resistorSVG(bands);
-
-  const reconstructed = parseInt(digitStr,10)*Math.pow(10,multPow);
-  const names = bands.map(c=>COLORS[c].zh).join(" - ");
-  descEl.innerHTML = `色环：<span style="color:var(--accent2)">${names}</span>`;
-  const tolPct = COLORS[tolColor].tol;
-  noteEl.textContent = (note? note+" · ":"") + `≈ ${fmtOhms(reconstructed)} ±${tolPct}%`;
+  const digitStr=String(digitsNum).padStart(sig,"0").slice(0,sig);
+  const digitColors=digitStr.split("").map(d=>DIGIT_COLORS[+d]);
+  const multColor=MULT_COLORS.find(c=>Math.abs(COLORS[c].mult-Math.pow(10,multPow))<1e-9)||"black";
+  const bands=[...digitColors,multColor,tolColor];
+  document.getElementById("encSvg").innerHTML=resistorSVG(bands);
+  const reconstructed=parseInt(digitStr,10)*Math.pow(10,multPow);
+  descEl.innerHTML=`色环：<span style="color:var(--accent2)">${bands.map(c=>COLORS[c].zh).join(" - ")}</span>`;
+  noteEl.textContent=(note?note+" · ":"")+`≈ ${fmtOhms(reconstructed)} ±${COLORS[tolColor].tol}%`;
+  const e=nearestE24(ohms);
+  if(e){ eEl.textContent = e.errPct<0.1 ? `✓ 是标准 E24（5%）系列值` : `最接近 E24 标准值：${fmtOhms(e.value)}（偏差 ${e.errPct.toFixed(1)}%）`; }
+  else eEl.textContent="";
 }
 
-/* ====================================================== QUIZ ====================================================== */
-let qScore=0,qStreak=0,qBest=0,qMode="4",qCurrent=null,qTimerId=null,qTimeLeft=0;
-const QUIZ_TIME=10000; // ms
+/* ===================== SMD ===================== */
+function decodeSMD(raw){
+  const code=(raw||"").trim().toUpperCase();
+  if(!code) return {ok:false,msg:"输入贴片代码"};
+  if(/^[0-9]{2}[A-Z]$/.test(code)){
+    const num=parseInt(code.slice(0,2),10), letter=code[2];
+    const base=EIA96[num], mult=EIA96_MULT[letter];
+    if(base===undefined||num<1) return {ok:false,msg:`EIA-96 代码 ${code.slice(0,2)} 无效（应为 01–96）`};
+    if(mult===undefined) return {ok:false,msg:`乘数字母 ${letter} 无效`};
+    return {ok:true,value:base*mult,system:"EIA-96 (1%)",detail:`代码 ${code.slice(0,2)} → ${base}，字母 ${letter} → ×${mult}`};
+  }
+  if(/^[0-9]*R[0-9]*$/.test(code)){
+    const val=parseFloat(code.replace("R","."));
+    if(isNaN(val)) return {ok:false,msg:"代码无效"};
+    return {ok:true,value:val,system:"含 R 小数代码",detail:`R 代表小数点 → ${val} Ω`};
+  }
+  if(/^[0-9]{3}$/.test(code)){
+    const sig=parseInt(code.slice(0,2),10), z=parseInt(code[2],10);
+    return {ok:true,value:sig*Math.pow(10,z),system:"3 位数代码",detail:`${sig} × 10^${z}`};
+  }
+  if(/^[0-9]{4}$/.test(code)){
+    const sig=parseInt(code.slice(0,3),10), z=parseInt(code[3],10);
+    return {ok:true,value:sig*Math.pow(10,z),system:"4 位数代码 (1%)",detail:`${sig} × 10^${z}`};
+  }
+  return {ok:false,msg:"无法识别（支持 3位 / 4位 / 含R小数 / EIA-96）"};
+}
+function renderSMD(){
+  const raw=document.getElementById("smdInput").value;
+  document.getElementById("smdSvg").innerHTML=smdChipSVG(raw.trim().toUpperCase());
+  const r=decodeSMD(raw);
+  const vEl=document.getElementById("smdValue"), sEl=document.getElementById("smdSystem"), dEl=document.getElementById("smdDetail");
+  if(r.ok){
+    vEl.textContent=fmtOhms(r.value); vEl.style.color="var(--accent)";
+    vEl.dataset.copy=fmtOhms(r.value);
+    sEl.textContent=r.system; dEl.textContent=r.detail;
+  } else {
+    vEl.textContent="—"; vEl.style.color="var(--muted)"; vEl.dataset.copy="";
+    sEl.textContent=r.msg; dEl.textContent="";
+  }
+}
+
+/* ===================== QUIZ ===================== */
+let qScore=0,qStreak=0,qBest=0,qMode="4",qCurrent=null,qTimerId=null;
+const QUIZ_TIME=10000;
+try{ qBest=parseInt(localStorage.getItem("rp_best")||"0",10)||0; }catch(e){}
 
 function randResistor(bands){
-  const d1=1+Math.floor(Math.random()*9);
-  const d2=Math.floor(Math.random()*10);
+  const d1=1+Math.floor(Math.random()*9), d2=Math.floor(Math.random()*10);
   const tolColor=["brown","red","gold","silver"][Math.floor(Math.random()*4)];
   if(bands===4){
-    const multPow=Math.floor(Math.random()*7); // 0..6
-    const multColor=MULT_COLORS.find(c=>COLORS[c].mult===Math.pow(10,multPow));
-    const arr=[DIGIT_COLORS[d1],DIGIT_COLORS[d2],multColor,tolColor];
-    const value=(d1*10+d2)*Math.pow(10,multPow);
-    return {bands:arr,value};
-  } else {
-    const d3=Math.floor(Math.random()*10);
-    const multPow=Math.floor(Math.random()*6);
-    const multColor=MULT_COLORS.find(c=>COLORS[c].mult===Math.pow(10,multPow));
-    const arr=[DIGIT_COLORS[d1],DIGIT_COLORS[d2],DIGIT_COLORS[d3],multColor,tolColor];
-    const value=(d1*100+d2*10+d3)*Math.pow(10,multPow);
-    return {bands:arr,value};
+    const mp=Math.floor(Math.random()*7);
+    return {bands:[DIGIT_COLORS[d1],DIGIT_COLORS[d2],MULT_COLORS.find(c=>COLORS[c].mult===Math.pow(10,mp)),tolColor],
+            value:(d1*10+d2)*Math.pow(10,mp)};
   }
+  const d3=Math.floor(Math.random()*10), mp=Math.floor(Math.random()*6);
+  return {bands:[DIGIT_COLORS[d1],DIGIT_COLORS[d2],DIGIT_COLORS[d3],MULT_COLORS.find(c=>COLORS[c].mult===Math.pow(10,mp)),tolColor],
+          value:(d1*100+d2*10+d3)*Math.pow(10,mp)};
 }
-
 function makeOptions(correct,bands){
-  const set=new Set([correct]);
-  let guard=0;
-  while(set.size<4 && guard++<50){
-    const r=randResistor(bands);
-    if(r.value>0) set.add(r.value);
-  }
+  const set=new Set([correct]); let g=0;
+  while(set.size<4 && g++<60){ const r=randResistor(bands); if(r.value>0) set.add(r.value); }
   const arr=[...set];
-  // shuffle
   for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}
   return arr;
 }
-
 function newQuestion(){
   clearInterval(qTimerId);
   document.getElementById("qFeedback").textContent="";
-  const bands = qMode==="mix" ? (Math.random()<0.5?4:5) : parseInt(qMode,10);
+  const bands=qMode==="mix"?(Math.random()<0.5?4:5):parseInt(qMode,10);
   qCurrent=randResistor(bands);
   document.getElementById("qSvg").innerHTML=resistorSVG(qCurrent.bands);
   const opts=makeOptions(qCurrent.value,bands);
-  const box=document.getElementById("qOpts");
-  box.innerHTML="";
-  opts.forEach(v=>{
+  const box=document.getElementById("qOpts"); box.innerHTML="";
+  opts.forEach((v,i)=>{
     const b=document.createElement("button");
-    b.className="opt"; b.textContent=fmtOhms(v);
-    b.onclick=()=>answer(v,b);
+    b.className="opt"; b.innerHTML=`<span class="kbd">${i+1}</span>${fmtOhms(v)}`;
+    b.dataset.val=v; b.onclick=()=>answer(v,b);
     box.appendChild(b);
   });
-  // timer
-  qTimeLeft=QUIZ_TIME;
-  document.getElementById("qTimer").style.width="100%";
   const t0=Date.now();
+  document.getElementById("qTimer").style.width="100%";
   qTimerId=setInterval(()=>{
-    qTimeLeft=QUIZ_TIME-(Date.now()-t0);
-    const pct=Math.max(0,qTimeLeft/QUIZ_TIME*100);
-    document.getElementById("qTimer").style.width=pct+"%";
-    if(qTimeLeft<=0){ clearInterval(qTimerId); timeout(); }
+    const left=QUIZ_TIME-(Date.now()-t0);
+    document.getElementById("qTimer").style.width=Math.max(0,left/QUIZ_TIME*100)+"%";
+    if(left<=0){ clearInterval(qTimerId); timeout(); }
   },80);
 }
-
 function lockOpts(){[...document.getElementById("qOpts").children].forEach(b=>b.disabled=true);}
-
+function revealCorrect(){[...document.getElementById("qOpts").children].forEach(b=>{ if(+b.dataset.val===qCurrent.value) b.classList.add("correct"); });}
+function saveBest(){ try{localStorage.setItem("rp_best",String(qBest));}catch(e){} }
 function answer(v,btn){
-  clearInterval(qTimerId);
-  lockOpts();
+  if(btn.disabled) return;
+  clearInterval(qTimerId); lockOpts();
   const fb=document.getElementById("qFeedback");
   if(v===qCurrent.value){
-    qScore+=10; qStreak+=1; qBest=Math.max(qBest,qStreak);
-    btn.classList.add("correct");
-    fb.style.color="var(--accent)"; fb.textContent="✅ 正确！+10";
+    qScore+=10; qStreak+=1; if(qStreak>qBest){qBest=qStreak;saveBest();}
+    btn.classList.add("correct"); fb.style.color="var(--accent)";
+    fb.textContent= qStreak>=5 ? `🔥 连击 ${qStreak}！+10` : "✅ 正确！+10";
   } else {
-    qStreak=0;
-    btn.classList.add("wrong");
-    [...document.getElementById("qOpts").children].forEach(b=>{
-      if(b.textContent===fmtOhms(qCurrent.value)) b.classList.add("correct");
-    });
+    qStreak=0; btn.classList.add("wrong"); revealCorrect();
     fb.style.color="var(--danger)"; fb.textContent="❌ 正确答案是 "+fmtOhms(qCurrent.value);
   }
-  updateQuizStats();
-  setTimeout(newQuestion,1300);
+  updateQuizStats(); setTimeout(newQuestion,1300);
 }
-
 function timeout(){
-  lockOpts();
-  qStreak=0;
-  [...document.getElementById("qOpts").children].forEach(b=>{
-    if(b.textContent===fmtOhms(qCurrent.value)) b.classList.add("correct");
-  });
-  const fb=document.getElementById("qFeedback");
-  fb.style.color="var(--danger)"; fb.textContent="⏱️ 超时！正确答案是 "+fmtOhms(qCurrent.value);
-  updateQuizStats();
-  setTimeout(newQuestion,1300);
+  lockOpts(); qStreak=0; revealCorrect();
+  const fb=document.getElementById("qFeedback"); fb.style.color="var(--danger)";
+  fb.textContent="⏱️ 超时！正确答案是 "+fmtOhms(qCurrent.value);
+  updateQuizStats(); setTimeout(newQuestion,1300);
 }
-
 function updateQuizStats(){
   document.getElementById("qScore").textContent=qScore;
   document.getElementById("qStreak").textContent=qStreak;
   document.getElementById("qBest").textContent=qBest;
 }
 
-/* ---------- legend ---------- */
+/* ===================== legend & tabs & wiring ===================== */
 function buildLegend(){
   const box=document.getElementById("legend");
   DIGIT_COLORS.forEach((c,i)=>{
-    const d=document.createElement("div");d.className="li";
+    const d=document.createElement("div"); d.className="li";
     d.innerHTML=`<span class="sw" style="background:${COLORS[c].hex}"></span>${COLORS[c].zh} ${c} = ${i}`;
     box.appendChild(d);
   });
 }
-
-/* ---------- tabs ---------- */
+let activeTab="decode";
 document.querySelectorAll(".tab").forEach(t=>{
   t.onclick=()=>{
     document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-    t.classList.add("active");
-    ["decode","encode","quiz"].forEach(id=>document.getElementById(id).classList.add("hidden"));
-    document.getElementById(t.dataset.tab).classList.remove("hidden");
-    if(t.dataset.tab==="quiz" && !qCurrent) newQuestion();
+    t.classList.add("active"); activeTab=t.dataset.tab;
+    ["decode","encode","smd","quiz"].forEach(id=>document.getElementById(id).classList.add("hidden"));
+    document.getElementById(activeTab).classList.remove("hidden");
+    if(activeTab==="quiz" && !qCurrent) newQuestion();
   };
 });
-
-/* band-count toggles */
 document.querySelectorAll("#decBands button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll("#decBands button").forEach(x=>x.classList.remove("active"));
   b.classList.add("active"); decN=parseInt(b.dataset.n,10);
-  decSel = decN===4 ? ["brown","black","red","gold"] : ["brown","black","black","brown","brown"];
-  buildDecodeControls(); renderDecode();
+  decSel=DEC_DEFAULTS[decN].slice(); buildDecodeControls(); renderDecode();
 });
 document.querySelectorAll("#encBands button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll("#encBands button").forEach(x=>x.classList.remove("active"));
@@ -477,17 +549,24 @@ document.querySelectorAll("#qBands button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll("#qBands button").forEach(x=>x.classList.remove("active"));
   b.classList.add("active"); qMode=b.dataset.n; newQuestion();
 });
-
+document.querySelectorAll(".smd-ex").forEach(b=>b.onclick=()=>{document.getElementById("smdInput").value=b.dataset.c;renderSMD();});
 document.getElementById("encInput").oninput=renderEncode;
 document.getElementById("encUnit").onchange=renderEncode;
 document.getElementById("encTol").onchange=renderEncode;
-document.getElementById("qReset").onclick=()=>{qScore=0;qStreak=0;qBest=0;updateQuizStats();newQuestion();};
+document.getElementById("smdInput").oninput=renderSMD;
+document.getElementById("qReset").onclick=()=>{qScore=0;qStreak=0;updateQuizStats();newQuestion();};
+document.getElementById("decCopy").onclick=function(){copyText(document.getElementById("decValue").dataset.copy||"",this);};
+document.getElementById("smdCopy").onclick=function(){copyText(document.getElementById("smdValue").dataset.copy||"",this);};
+document.addEventListener("keydown",e=>{
+  if(activeTab!=="quiz") return;
+  if(["1","2","3","4"].includes(e.key)){
+    const btn=document.getElementById("qOpts").children[+e.key-1];
+    if(btn && !btn.disabled) btn.click();
+  }
+});
 
 /* init */
-buildDecodeControls();
-buildLegend();
-renderDecode();
-renderEncode();
+buildDecodeControls(); buildLegend(); renderDecode(); renderEncode(); renderSMD(); updateQuizStats();
 </script>
 </body>
 </html>
