@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" width="860" height="600" font-family="'Segoe UI',system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16243a"/>
+      <stop offset="0.55" stop-color="#0c1018"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(255,255,255,.35)"/>
+      <stop offset="0.5" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,.18)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- backdrop -->
+  <rect x="0" y="0" width="860" height="600" rx="20" fill="url(#bg)"/>
+
+  <!-- title -->
+  <polygon points="266,26 256,52 268,52 260,74 286,44 272,44 280,26" fill="#f4d03f"/>
+  <text x="446" y="52" text-anchor="middle" font-size="30" font-weight="700" fill="#e8eef7">Resistor Playground</text>
+  <text x="446" y="80" text-anchor="middle" font-size="15" fill="#8da0bd">电阻色环游乐场</text>
+  <text x="430" y="106" text-anchor="middle" font-size="12.5" fill="#8da0bd">色环解码 · 反查 · SMD 贴片 · 限时闯关 — 写给电类同学的小工具</text>
+
+  <!-- tabs -->
+  <g font-size="14">
+    <rect x="118" y="128" width="158" height="38" rx="19" fill="url(#accent)"/>
+    <text x="197" y="153" text-anchor="middle" font-weight="600" fill="#06121e">解码 Decode</text>
+    <rect x="286" y="128" width="148" height="38" rx="19" fill="#141b27" stroke="#27324a"/>
+    <text x="360" y="153" text-anchor="middle" fill="#8da0bd">反查 Encode</text>
+    <rect x="444" y="128" width="130" height="38" rx="19" fill="#141b27" stroke="#27324a"/>
+    <text x="509" y="153" text-anchor="middle" fill="#8da0bd">SMD 贴片</text>
+    <rect x="584" y="128" width="130" height="38" rx="19" fill="#141b27" stroke="#27324a"/>
+    <text x="649" y="153" text-anchor="middle" fill="#8da0bd">闯关 Quiz</text>
+  </g>
+
+  <!-- panel -->
+  <rect x="40" y="185" width="780" height="380" rx="18" fill="#141b27" stroke="#27324a"/>
+
+  <!-- resistor -->
+  <g>
+    <line x1="170" y1="282" x2="340" y2="282" stroke="#9aa0a6" stroke-width="6"/>
+    <line x1="520" y1="282" x2="690" y2="282" stroke="#9aa0a6" stroke-width="6"/>
+    <rect x="340" y="250" width="180" height="64" rx="30" fill="#d9c9a3" stroke="#b9a577" stroke-width="2"/>
+    <rect x="340" y="250" width="180" height="64" rx="30" fill="url(#sheen)"/>
+    <rect x="361" y="246" width="14" height="72" rx="3" fill="#7c4a22" stroke="rgba(0,0,0,.35)"/>
+    <rect x="396" y="246" width="14" height="72" rx="3" fill="#161616" stroke="rgba(0,0,0,.35)"/>
+    <rect x="431" y="246" width="14" height="72" rx="3" fill="#d8392f" stroke="rgba(0,0,0,.35)"/>
+    <rect x="492" y="246" width="14" height="72" rx="3" fill="#c9a227" stroke="rgba(0,0,0,.35)"/>
+  </g>
+
+  <!-- result -->
+  <rect x="80" y="368" width="700" height="168" rx="14" fill="#1b2433" stroke="#27324a"/>
+  <rect x="700" y="384" width="58" height="26" rx="8" fill="#141b27" stroke="#27324a"/>
+  <text x="729" y="401" text-anchor="middle" font-size="12" fill="#8da0bd">复制</text>
+  <text x="430" y="452" text-anchor="middle" font-size="48" font-weight="700" fill="#34d399">1 kΩ</text>
+  <text x="430" y="486" text-anchor="middle" font-size="17" fill="#e8eef7">容差 ±5%</text>
+  <text x="430" y="512" text-anchor="middle" font-size="13.5" fill="#8da0bd">实际范围：950 Ω ~ 1.05 kΩ</text>
+</svg>

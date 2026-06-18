@@ -10,6 +10,12 @@
 单个 `index.html`，没有任何依赖，双击即可打开，也可一键挂到 GitHub Pages。
 A single `index.html` with no build step and no dependencies — open it directly or host it on GitHub Pages.
 
+## 📸 预览 Preview
+
+![Resistor Playground · 电阻色环游乐场](docs/preview.png)
+
+> 想要实时交互？打开 **[在线演示 Live Demo](https://kkkakania.github.io/resistor-playground/)**。
+
 ## ✨ 功能 Features
 
 - **🎨 解码 Decode** — 选择每一环颜色，电阻图实时更新，算出阻值、容差和实际范围。支持 **4 / 5 / 6 环**（6 环含温度系数 ppm/°C）。
